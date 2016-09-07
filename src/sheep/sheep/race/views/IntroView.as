@@ -3,14 +3,22 @@
  */
 package sheep.sheep.race.views
 {
-	import starling.display.Quad;
+	import sheep.sheep.race.StarlingFactory;
+	import sheep.sheep.race.utils.ViewPort;
+
 	import starling.display.Sprite;
+	import starling.text.TextField;
 
 	public class IntroView extends Sprite
 	{
 		public function IntroView()
 		{
-			addChild( new Quad( 40, 40, 0xFF0000 ));
+			addChild( StarlingFactory.getBackground());
+
+			var txt:TextField = StarlingFactory.getTextField(400,"RONALDO SANTIAGO");
+			txt.alignPivot();
+			ViewPort.alignCenter(txt);
+			addChild( txt);
 		}
 	}
 }

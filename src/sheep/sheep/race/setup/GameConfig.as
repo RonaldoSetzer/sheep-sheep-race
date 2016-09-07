@@ -8,8 +8,14 @@ package sheep.sheep.race.setup
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
 
+	import sheep.sheep.race.assets.Assets;
+
 	import sheep.sheep.race.events.FlowEvent;
+	import sheep.sheep.race.mediators.GameViewMediator;
+	import sheep.sheep.race.mediators.HomeViewMediator;
 	import sheep.sheep.race.mediators.IntroViewMediator;
+	import sheep.sheep.race.views.GameView;
+	import sheep.sheep.race.views.HomeView;
 	import sheep.sheep.race.views.IntroView;
 
 	import starling.events.EventDispatcher;
@@ -35,6 +41,8 @@ package sheep.sheep.race.setup
 
 		private function init():void
 		{
+			Assets.init();
+
 			mapModels();
 			mapManagers();
 			mapMediators();
@@ -56,11 +64,15 @@ package sheep.sheep.race.setup
 		private function mapMediators():void
 		{
 			mediatorMap.map( IntroView ).toMediator( IntroViewMediator );
+			mediatorMap.map( HomeView ).toMediator( HomeViewMediator );
+			mediatorMap.map( GameView ).toMediator( GameViewMediator );
 		}
 
 		private function mapFlowManager():void
 		{
 			flowManager.mapSetView( FlowEvent.SHOW_INTRO_VIEW, IntroView );
+			flowManager.mapSetView( FlowEvent.SHOW_HOME_VIEW, HomeView );
+			flowManager.mapSetView( FlowEvent.SHOW_GAME_VIEW, GameView );
 		}
 	}
 }

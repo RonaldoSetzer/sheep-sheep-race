@@ -5,12 +5,8 @@ package sheep.sheep.race.assets
 {
 	public class Embeds
 	{
-		/* IMAGES */
-		[Embed(source="/../assets/displays/button_up.png")]
-		public static const ButtonUp:Class;
-
 		/* ATLAS */
-		[Embed(source="/../assets/atlas/sheep_spritesheet.png")]
+		[Embed(source="/../assets/atlas/sheep_spritesheet-0.png")]
 		public static const SheepSheepImageAtlas:Class;
 
 		[Embed(source="/../assets/atlas/sheep_spritesheet.xml", mimeType="application/octet-stream")]

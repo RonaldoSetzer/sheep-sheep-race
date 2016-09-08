@@ -6,7 +6,6 @@ package sheep.sheep.race.mediators
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
 	import sheep.sheep.race.events.FlowEvent;
-
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.views.BetPopup;
 
@@ -17,12 +16,12 @@ package sheep.sheep.race.mediators
 		[Inject]
 		public var gameModel:GameModel;
 
-		public var betPopup:BetPopup;
+		public var _view:BetPopup;
 
 		override public function initialize():void
 		{
-			betPopup = BetPopup( viewComponent );
-			eventMap.mapListener( betPopup.startButton, Event.TRIGGERED, onStartHandler );
+			_view = BetPopup( viewComponent );
+			eventMap.mapListener( _view.startButton, Event.TRIGGERED, onStartHandler );
 		}
 
 		override public function destroy():void
@@ -32,14 +31,12 @@ package sheep.sheep.race.mediators
 
 		private function onStartHandler( e:Event ):void
 		{
-			gameModel.betFirstPosition = betPopup.sheepSelectorWinner.selectedSheepId;
-			gameModel.betLastPosition = betPopup.sheepSelectorLoser.selectedSheepId;
-
-			trace( "YOUR BET IS -> Winner: ", gameModel.betFirstPosition, " Loser: ", gameModel.betLastPosition );
+			gameModel.betFirstPosition = _view.sheepSelectorFirstPosition.selectedSheepId;
+			gameModel.betLastPosition = _view.sheepSelectorLastPosition.selectedSheepId;
 
 			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_STARTING_POPUP ) );
 
-			betPopup.destroy();
+			_view.destroy();
 		}
 	}
 }

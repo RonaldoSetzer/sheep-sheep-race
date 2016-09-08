@@ -3,7 +3,9 @@
  */
 package sheep.sheep.race.views
 {
+	import sheep.sheep.info.ColorInfo;
 	import sheep.sheep.race.StarlingFactory;
+	import sheep.sheep.race.TextInfo;
 	import sheep.sheep.race.utils.ViewPort;
 	import sheep.sheep.race.views.components.SheepSelector;
 
@@ -14,64 +16,69 @@ package sheep.sheep.race.views
 
 	public class BetPopup extends Sprite
 	{
+		private var _startButton:Button;
+		private var _sheepSelectorLastPosition:SheepSelector;
+		private var _sheepSelectorFirstPosition:SheepSelector;
+
 		public function BetPopup()
 		{
 			addChild( StarlingFactory.getShadowBackground() );
 
-			var background:Quad = StarlingFactory.getBackground();
+			var background:Quad = StarlingFactory.getBackground( ColorInfo.BACKGROUND_POPUP_1, ColorInfo.BACKGROUND_POPUP_2 );
 			background.width = ViewPort.HALF_WIDTH;
-			background.height = ViewPort.HALF_HEIGHT;
+			background.height = ViewPort.MAX_HEIGHT * .7;
 			background.alignPivot();
 			ViewPort.alignCenter( background );
 			addChild( background );
 
-			var textWinner:TextField = StarlingFactory.getTextField( 100, "WINNER" );
-			textWinner.x = 200;
-			textWinner.y = 180;
-			addChild( textWinner );
+			var title:TextField = StarlingFactory.getTitle( TextInfo.TITLE_BET );
+			title.y = 100;
+			addChild( title );
 
-			var textLoser:TextField = StarlingFactory.getTextField( 100, "LOSER" );
-			textLoser.x = 350;
-			textLoser.y = 180;
-			addChild( textLoser );
+			var firstPositionText:TextField = StarlingFactory.getTextField( 140, TextInfo.FIRST_POSITION, TextInfo.SIZE_DEFAULT, 2 );
+			firstPositionText.alignPivot();
+			firstPositionText.x = ViewPort.HALF_WIDTH - 80;
+			firstPositionText.y = 170;
+			addChild( firstPositionText );
 
-			_sheepSelectorWinner = new SheepSelector();
-			_sheepSelectorWinner.x = 170;
-			_sheepSelectorWinner.y = 220;
-			addChild( _sheepSelectorWinner );
+			var lastPositionText:TextField = StarlingFactory.getTextField( 140, TextInfo.LAST_POSITION, TextInfo.SIZE_DEFAULT, 2 );
+			lastPositionText.alignPivot();
+			lastPositionText.x = ViewPort.HALF_WIDTH + 80;
+			lastPositionText.y = 170;
+			addChild( lastPositionText );
 
-			_sheepSelectorLoser = new SheepSelector();
-			_sheepSelectorLoser.x = 320;
-			_sheepSelectorLoser.y = 220;
-			addChild( _sheepSelectorLoser );
+			_sheepSelectorFirstPosition = new SheepSelector();
+			_sheepSelectorFirstPosition.x = ViewPort.HALF_WIDTH - 80;
+			_sheepSelectorFirstPosition.y = 250;
+			addChild( _sheepSelectorFirstPosition );
 
+			_sheepSelectorLastPosition = new SheepSelector();
+			_sheepSelectorLastPosition.x = ViewPort.HALF_WIDTH + 80;
+			_sheepSelectorLastPosition.y = 250;
+			_sheepSelectorLastPosition.back();
+			addChild( _sheepSelectorLastPosition );
 
-			_startButton = StarlingFactory.getButton( "STARTs" );
+			_startButton = StarlingFactory.getButton( "START" );
 			_startButton.alignPivot();
 			_startButton.x = ViewPort.HALF_WIDTH;
 			_startButton.y = ViewPort.MAX_HEIGHT * .76;
 			addChild( _startButton )
 		}
 
-		private var _startButton:Button;
 
 		public function get startButton():Button
 		{
 			return _startButton;
 		}
 
-		private var _sheepSelectorLoser:SheepSelector;
-
-		public function get sheepSelectorLoser():SheepSelector
+		public function get sheepSelectorLastPosition():SheepSelector
 		{
-			return _sheepSelectorLoser;
+			return _sheepSelectorLastPosition;
 		}
 
-		private var _sheepSelectorWinner:SheepSelector;
-
-		public function get sheepSelectorWinner():SheepSelector
+		public function get sheepSelectorFirstPosition():SheepSelector
 		{
-			return _sheepSelectorWinner;
+			return _sheepSelectorFirstPosition;
 		}
 
 		public function destroy():void

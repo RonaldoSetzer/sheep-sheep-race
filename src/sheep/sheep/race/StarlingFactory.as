@@ -4,20 +4,17 @@
 package sheep.sheep.race
 {
 	import sheep.sheep.info.AssetsInfo;
+	import sheep.sheep.info.ColorInfo;
 	import sheep.sheep.race.assets.Assets;
-	import sheep.sheep.race.assets.Embeds;
 	import sheep.sheep.race.utils.ViewPort;
 
-	import starling.animation.Juggler;
 	import starling.core.Starling;
-
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.text.TextField;
-	import starling.textures.Texture;
 	import starling.textures.TextureSmoothing;
 
 	public class StarlingFactory
@@ -29,10 +26,18 @@ package sheep.sheep.race
 
 		public static function getButton( text:String ):Button
 		{
-			var button:Button = new Button( Texture.fromBitmap( new Embeds.ButtonUp() ), text );
+			var button:Button = new Button( Assets.getTexture( AssetsInfo.BUTTON_UP ), text );
 			button.fontName = AssetsInfo.FONT_FAMILY;
-			button.fontSize = 16;
+			button.fontSize = TextInfo.SIZE_DEFAULT;
 			button.fontColor = 0xFFFFFF;
+			return  button;
+		}
+
+		public static function getButtonArrow( scaleX:int = 1 ):Button
+		{
+			var button:Button = new Button( Assets.getTexture( AssetsInfo.BUTTON_ARROW_UP ) );
+			button.alignPivot();
+			button.scaleX = scaleX;
 			return  button;
 		}
 
@@ -59,11 +64,9 @@ package sheep.sheep.race
 		{
 			return new Quad( width, height, color );
 		}
-		public static function getBackground():Quad
+
+		public static function getBackground( top:int = ColorInfo.BACKGROUND_SKY_1, down:int = ColorInfo.BACKGROUND_SKY_2 ):Quad
 		{
-			var top:int = 0x37c7dc;//0x004455;/*0x1b6c9f*/
-			var down:int = 0x269eb7;
-			/*0x21f1e9*/
 			var background:Quad = StarlingFactory.getFullQuad( top );
 			background.setVertexColor( 2, down );
 			background.setVertexColor( 3, down );
@@ -84,7 +87,7 @@ package sheep.sheep.race
 		{
 			var img:MovieClip = new MovieClip( Assets.getTextures( assetKey ) );
 			img.smoothing = TextureSmoothing.NONE;
-			Starling.juggler.add(img);
+			Starling.juggler.add( img );
 
 			img.play();
 			return img;

@@ -9,6 +9,7 @@ package sheep.sheep.race.views.components
 
 	import starling.display.Button;
 	import starling.display.Image;
+	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.events.Event;
 
@@ -19,20 +20,29 @@ package sheep.sheep.race.views.components
 			_ids = [ SheepIds.SHEEP_01 , SheepIds.SHEEP_02 , SheepIds.SHEEP_03 , SheepIds.SHEEP_04 ];
 			_selectedSheepId = _ids[0];
 
+			var background:Quad = StarlingFactory.getQuad( 86, 72, 0x000000 );
+			background.alignPivot();
+			addChild( background);
+
+			var background2:Quad = StarlingFactory.getQuad( 82, 68, 0xFFFFFF );
+			background2.alignPivot();
+			addChild( background2);
+
 			_image = StarlingFactory.getImage( convertIdToAssetsPrefix( _selectedSheepId ) );
-			_image.x = 45;
+			_image.alignPivot();
 			addChild( _image );
 
-			var backButton:Button = StarlingFactory.getButton( "BACK" );
-			backButton.x = 10;
-			backButton.y = 80;
+			var backButton:Button = StarlingFactory.getButtonArrow( -1 );
+			backButton.x = -22;
+			backButton.y = 60;
 			addChild( backButton );
 
-			var nextButton:Button = StarlingFactory.getButton( "NEXT" );
-			nextButton.x = 60;
-			nextButton.y = 80;
+			var nextButton:Button = StarlingFactory.getButtonArrow();
+			nextButton.x = 22;
+			nextButton.y = 60;
 			addChild( nextButton );
 
+			alignPivot();
 			nextButton.addEventListener( Event.TRIGGERED, onNextHandler );
 			backButton.addEventListener( Event.TRIGGERED, onBackHandler );
 		}
@@ -58,18 +68,29 @@ package sheep.sheep.race.views.components
 			return id + "01";
 		}
 
-		private function onNextHandler( e:Event ):void
+		public function next():void
 		{
 			_ids.push( _ids.shift() );
 			_selectedSheepId = _ids[0];
 			updateImage( convertIdToAssetsPrefix( _selectedSheepId ) )
 		}
 
-		private function onBackHandler( e:Event ):void
+		public function back():void
 		{
 			_ids.unshift( _ids.pop() );
 			_selectedSheepId = _ids[0];
 			updateImage( convertIdToAssetsPrefix( _selectedSheepId ) )
 		}
+
+		private function onNextHandler( e:Event ):void
+		{
+			next();
+		}
+
+		private function onBackHandler( e:Event ):void
+		{
+			back();
+		}
+
 	}
 }

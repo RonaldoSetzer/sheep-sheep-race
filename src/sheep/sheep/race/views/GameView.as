@@ -23,7 +23,7 @@ package sheep.sheep.race.views
 		public function GameView()
 		{
 			addChild( StarlingFactory.getBackground() );
-			addChild( StarlingFactory.getTitle( "GAME" ) );
+			addChild( StarlingFactory.getImage( "background_game" ) );
 
 			_sheeps = new Dictionary();
 			sheeps = new Vector.<MovieClip>();
@@ -36,10 +36,18 @@ package sheep.sheep.race.views
 			var raceContent:Sprite = StarlingFactory.getSprite();
 			raceContent.x = 30;
 			raceContent.y = 200;
-			addChild( raceContent);
+			addChild( raceContent );
 
-			var raceEnd:Quad = StarlingFactory.getQuad(30,200,0xFFFFF);
+			var raceStart:Quad = StarlingFactory.getQuad( 5, 180, 0xFFFFFF );
+			raceStart.x = 55;
+			raceStart.y = 20;
+			raceStart.alpha = .4;
+			raceContent.addChild( raceStart );
+
+			var raceEnd:Quad = StarlingFactory.getQuad( 20, 180, 0xFFFFFF );
 			raceEnd.x = 520;
+			raceEnd.y = 20
+			raceEnd.alpha = .4;
 			raceContent.addChild( raceEnd );
 
 			for ( var i:int = 0; i < 4; i++ )
@@ -49,7 +57,7 @@ package sheep.sheep.race.views
 				raceContent.addChild( sheep );
 
 				_sheeps[ids[i]] = sheep;
-				sheeps.push(sheep);
+				sheeps.push( sheep );
 			}
 
 			_betButton = StarlingFactory.getButton( "BET" );
@@ -71,7 +79,7 @@ package sheep.sheep.race.views
 
 		public function move( sheepId:String, sheepSteps:int ):void
 		{
-			_sheeps[sheepId].x = _sheeps[sheepId].x + (sheepSteps*30);
+			_sheeps[sheepId].x = _sheeps[sheepId].x + (sheepSteps * 30);
 		}
 	}
 }

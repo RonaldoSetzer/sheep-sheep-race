@@ -3,11 +3,11 @@
  */
 package sheep.sheep.race.managers
 {
+	import flash.events.IEventDispatcher;
+
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.models.SheepModel;
-
-	import starling.events.EventDispatcher;
 
 	public class GameManager
 	{
@@ -15,7 +15,7 @@ package sheep.sheep.race.managers
 		public var gameModel:GameModel;
 
 		[Inject]
-		public var eventDispatcher:EventDispatcher;
+		public var eventDispatcher:IEventDispatcher;
 
 		public function start():void
 		{
@@ -24,23 +24,23 @@ package sheep.sheep.race.managers
 
 		public function updateRace():void
 		{
-			var speeds:Array = [1,2,3,4];
+			var speeds:Array = [1, 2, 3, 4];
 			var speed:int;
 			var total:uint = gameModel.sheepModels.length;
 			var sheepModel:SheepModel;
 
-			for( var i:int = 0; i < total; ++i)
+			for ( var i:int = 0; i < total; ++i )
 			{
-				speed = speeds[Math.floor(Math.random()*speeds.length)];
+				speed = speeds[Math.floor( Math.random() * speeds.length )];
 				sheepModel = gameModel.sheepModels[i];
-				sheepModel.increaseDistance(speed);
+				sheepModel.increaseDistance( speed );
 				if ( sheepModel.distance >= 520 )
 				{
 					gameModel.addRacePosition( sheepModel );
 				}
-				if(gameModel.isEnd())
+				if ( gameModel.isEnd() )
 				{
-					eventDispatcher.dispatchEvent( new RaceEvent( RaceEvent.END ));
+					eventDispatcher.dispatchEvent( new RaceEvent( RaceEvent.END ) );
 					return;
 				}
 			}

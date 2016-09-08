@@ -18,7 +18,7 @@ package sheep.sheep.race.views
 	{
 		private var _sheeps:Dictionary;
 		public var sheeps:Vector.<MovieClip>;
-		private var _startRace:Button;
+		private var _betButton:Button;
 
 		public function GameView()
 		{
@@ -52,11 +52,11 @@ package sheep.sheep.race.views
 				sheeps.push(sheep);
 			}
 
-			_startRace = StarlingFactory.getButton( "NEXT" );
-			_startRace.alignPivot();
-			_startRace.x = ViewPort.HALF_WIDTH;
-			_startRace.y = ViewPort.MAX_HEIGHT * .9;
-			addChild( _startRace )
+			_betButton = StarlingFactory.getButton( "BET" );
+			_betButton.alignPivot();
+			_betButton.x = ViewPort.HALF_WIDTH;
+			_betButton.y = ViewPort.MAX_HEIGHT * .9;
+			addChild( _betButton )
 		}
 
 		public function getSheepById( id:String ):MovieClip
@@ -64,9 +64,9 @@ package sheep.sheep.race.views
 			return _sheeps[id];
 		}
 
-		public function get startRace():Button
+		public function get betButton():Button
 		{
-			return _startRace;
+			return _betButton;
 		}
 
 		public function move( sheepId:String, sheepSteps:int ):void

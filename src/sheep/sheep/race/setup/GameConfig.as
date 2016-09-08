@@ -11,17 +11,24 @@ package sheep.sheep.race.setup
 
 	import sheep.sheep.race.assets.Assets;
 	import sheep.sheep.race.commands.EndRaceCommand;
+	import sheep.sheep.race.commands.RetryRaceCommand;
 
 	import sheep.sheep.race.events.FlowEvent;
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.managers.GameManager;
+	import sheep.sheep.race.mediators.BetFeedbackPopupMediator;
+	import sheep.sheep.race.mediators.BetPopupMediator;
 	import sheep.sheep.race.mediators.GameViewMediator;
 	import sheep.sheep.race.mediators.HomeViewMediator;
 	import sheep.sheep.race.mediators.IntroViewMediator;
+	import sheep.sheep.race.mediators.StartingPopupMediator;
 	import sheep.sheep.race.models.GameModel;
+	import sheep.sheep.race.views.BetFeedbackPopup;
+	import sheep.sheep.race.views.BetPopup;
 	import sheep.sheep.race.views.GameView;
 	import sheep.sheep.race.views.HomeView;
 	import sheep.sheep.race.views.IntroView;
+	import sheep.sheep.race.views.StartingPopup;
 
 	import starling.events.EventDispatcher;
 
@@ -63,6 +70,7 @@ package sheep.sheep.race.setup
 		private function mapCommands():void
 		{
 			commandMap.map( RaceEvent.END, RaceEvent ).toCommand( EndRaceCommand );
+			commandMap.map( RaceEvent.RETRY, RaceEvent ).toCommand( RetryRaceCommand );
 		}
 
 		private function mapModels():void
@@ -80,6 +88,9 @@ package sheep.sheep.race.setup
 			mediatorMap.map( IntroView ).toMediator( IntroViewMediator );
 			mediatorMap.map( HomeView ).toMediator( HomeViewMediator );
 			mediatorMap.map( GameView ).toMediator( GameViewMediator );
+			mediatorMap.map( BetPopup ).toMediator( BetPopupMediator );
+			mediatorMap.map( BetFeedbackPopup ).toMediator( BetFeedbackPopupMediator );
+			mediatorMap.map( StartingPopup ).toMediator( StartingPopupMediator );
 		}
 
 		private function mapFlowManager():void
@@ -87,6 +98,9 @@ package sheep.sheep.race.setup
 			flowManager.mapSetView( FlowEvent.SHOW_INTRO_VIEW, IntroView );
 			flowManager.mapSetView( FlowEvent.SHOW_HOME_VIEW, HomeView );
 			flowManager.mapSetView( FlowEvent.SHOW_GAME_VIEW, GameView );
+			flowManager.mapAddView( FlowEvent.SHOW_BET_POPUP, BetPopup );
+			flowManager.mapAddView( FlowEvent.SHOW_BET_FEEDBACK_POPUP, BetFeedbackPopup );
+			flowManager.mapAddView( FlowEvent.SHOW_STARTING_POPUP, StartingPopup );
 		}
 	}
 }

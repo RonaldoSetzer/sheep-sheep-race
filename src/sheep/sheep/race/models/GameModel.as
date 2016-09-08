@@ -8,8 +8,8 @@ package sheep.sheep.race.models
 		private var _sheepModels:Vector.<SheepModel>;
 		private var _racePosition:Vector.<SheepModel>;
 
-		public var bestEnd:String;
-		public var worstEnd:String;
+		public var betFirstPosition:String;
+		public var betLastPosition:String;
 
 		public function GameModel()
 		{
@@ -27,8 +27,8 @@ package sheep.sheep.race.models
 				_sheepModels.push( new SheepModel( SheepIds.SHEEPS_IDS_ORDER[i] ) )
 			}
 
-			bestEnd = "";
-			worstEnd = "";
+			betFirstPosition = "";
+			betLastPosition = "";
 		}
 
 		public function get sheepModels():Vector.<SheepModel>
@@ -38,12 +38,25 @@ package sheep.sheep.race.models
 
 		public function addRacePosition( sheep:SheepModel ):void
 		{
-			_racePosition.push(sheep);
+			if (_racePosition.indexOf(sheep)==-1)
+			{
+				_racePosition.push(sheep);
+			}
 		}
 
 		public function isEnd():Boolean
 		{
 			return _racePosition.length == _sheepModels.length;
+		}
+
+		public function isBetFirstPositionRight():Boolean
+		{
+			return (_racePosition[0].id == betFirstPosition);
+		}
+
+		public function isBetLastPositionRight():Boolean
+		{
+			return (_racePosition[_racePosition.length-1].id == betLastPosition);
 		}
 	}
 }

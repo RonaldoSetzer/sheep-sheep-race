@@ -3,19 +3,18 @@
  */
 package sheep.sheep.race.events
 {
-	import sheep.sheep.race.models.SheepModel;
-
-	import starling.events.Event;
+	import flash.events.Event;
 
 	public class RaceEvent extends Event
 	{
 		public static const START:String = "start";
-
 		public static const END:String = "end";
+		public static const RETRY:String = "retry";
+		public static const UPDATE:String = "update";
 
 		public function RaceEvent( type:String )
 		{
-			super( type, false, null );
+			super( type, false, false );
 		}
 	}
 }

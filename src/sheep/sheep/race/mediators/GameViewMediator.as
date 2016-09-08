@@ -3,7 +3,11 @@
  */
 package sheep.sheep.race.mediators
 {
+	import flash.events.IEventDispatcher;
+
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
+
+	import sheep.sheep.race.events.FlowEvent;
 
 	import sheep.sheep.race.events.RaceEvent;
 
@@ -20,6 +24,9 @@ package sheep.sheep.race.mediators
 		public var gameManager:GameManager;
 
 		[Inject]
+		public var dispatcher:IEventDispatcher;
+
+		[Inject]
 		public var gameModel:GameModel;
 
 		public var gameView:GameView;
@@ -29,30 +36,49 @@ package sheep.sheep.race.mediators
 			gameManager.start();
 
 			gameView = GameView( viewComponent );
+			gameView.betButton.visible = true;
 
-			eventMap.mapListener( gameView.startRace, Event.TRIGGERED, onStartRaceHandler );
-			addContextListener( RaceEvent.END, onEndRaceHandler );
+			eventMap.mapListener( gameView.betButton, Event.TRIGGERED, onBetHandler );
+			dispatcher.addEventListener( RaceEvent.END, onEndRaceHandler );
+			dispatcher.addEventListener( RaceEvent.START, onStartRaceHandler );
+			dispatcher.addEventListener( RaceEvent.UPDATE, onUpdateHandler );
 		}
 
-		private function onStartRaceHandler( e:Event ):void
+		private function onStartRaceHandler( e:RaceEvent ):void
 		{
 			addViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
 		}
 
+		private function onBetHandler( e:Event ):void
+		{
+			gameView.betButton.visible = false;
+			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_BET_POPUP ));
+		}
+
 		private function onEnterFrameHandler( e:Event ):void
+		{
+			update();
+		}
+
+		private function onUpdateHandler( e:RaceEvent ):void
+		{
+			update();
+		}
+
+		private function update():void
 		{
 			gameManager.updateRace();
 
 			var sheep:MovieClip;
 			var total:uint = gameModel.sheepModels.length;
-			for( var i:int = 0; i < total; ++i )
+			for ( var i:int = 0; i < total; ++i )
 			{
 				sheep = gameView.getSheepById( gameModel.sheepModels[i].id );
 				sheep.x = gameModel.sheepModels[i].distance;
 			}
 		}
 
-		private function onEndRaceHandler( e:Event ):void
+		private function onEndRaceHandler( e:RaceEvent ):void
 		{
 			removeViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
 		}
@@ -60,6 +86,8 @@ package sheep.sheep.race.mediators
 		override public function destroy():void
 		{
 			eventMap.unmapListeners();
+			dispatcher.removeEventListener( RaceEvent.END, onEndRaceHandler );
+			dispatcher.removeEventListener( RaceEvent.START, onStartRaceHandler );
 		}
 	}
 }

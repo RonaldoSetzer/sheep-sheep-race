@@ -4,6 +4,7 @@
 package sheep.sheep.race.views
 {
 	import sheep.sheep.race.StarlingFactory;
+	import sheep.sheep.race.TextInfo;
 	import sheep.sheep.race.utils.ViewPort;
 
 	import starling.display.Sprite;
@@ -15,7 +16,7 @@ package sheep.sheep.race.views
 		{
 			addChild( StarlingFactory.getBackground());
 
-			var txt:TextField = StarlingFactory.getTextField(400,"RONALDO SANTIAGO");
+			var txt:TextField = StarlingFactory.getTextField( 400, TextInfo.DEVELOPER);
 			txt.alignPivot();
 			ViewPort.alignCenter(txt);
 			addChild( txt);

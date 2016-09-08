@@ -8,8 +8,12 @@ package sheep.sheep.race
 	import sheep.sheep.race.assets.Embeds;
 	import sheep.sheep.race.utils.ViewPort;
 
+	import starling.animation.Juggler;
+	import starling.core.Starling;
+
 	import starling.display.Button;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.display.Quad;
 	import starling.text.TextField;
 	import starling.textures.Texture;
@@ -73,6 +77,16 @@ package sheep.sheep.race
 			title.y = 30;
 			title.hAlign = "center";
 			return title;
+		}
+
+		public static function getMovieClip( assetKey:String ):MovieClip
+		{
+			var img:MovieClip = new MovieClip( Assets.getTextures( assetKey ) );
+			img.smoothing = TextureSmoothing.NONE;
+			Starling.juggler.add(img);
+
+			img.play();
+			return img;
 		}
 	}
 }

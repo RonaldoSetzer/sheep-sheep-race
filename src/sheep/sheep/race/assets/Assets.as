@@ -9,12 +9,21 @@ package sheep.sheep.race.assets
 
 	import starling.textures.Texture;
 	import starling.text.BitmapFont;
+	import starling.textures.TextureAtlas;
 	import starling.textures.TextureSmoothing;
 
 	public class Assets
 	{
+		private static var sheepSheepTextureAtlas:TextureAtlas;
+
 		public static function init():void
 		{
+
+			var sheepSheepTexture:Texture = Texture.fromBitmap( new Embeds.SheepSheepImageAtlas() );
+			var sheepSheepTextureXML:XML = XML( new Embeds.SheepSheepXMLAtlas() );
+			sheepSheepTextureAtlas = new TextureAtlas( sheepSheepTexture, sheepSheepTextureXML );
+
+
 			var simpleSmallPixelBMP:Bitmap = new Embeds.SetzerPixelFontTexture();
 			var texture:Texture = Texture.fromBitmap( simpleSmallPixelBMP );
 
@@ -24,9 +33,14 @@ package sheep.sheep.race.assets
 			TextField.registerBitmapFont( setzerPixelFont );
 		}
 
-		public static function getTexture( assetKey:String ):Texture
+		public static function getTexture( preFix:String ):Texture
 		{
-			return new Texture();
+			return sheepSheepTextureAtlas.getTexture( preFix );
+		}
+
+		public static function getTextures( preFix:String ):Vector.<Texture>
+		{
+			return sheepSheepTextureAtlas.getTextures( preFix );
 		}
 	}
 }

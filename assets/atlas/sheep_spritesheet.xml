@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:b21cb2608b73fd9387bc854a5383a9a9:e1b200f846b9a324f4c5e41ee28c066a:4c6b1c6f6f62003f0def0e1954bebbe4$ -->
+<TextureAtlas imagePath="sheep_spritesheet.png">
+    <SubTexture name="background_bounds" x="484" y="2" width="480" height="378"/>
+    <SubTexture name="background_cloud_01" x="146" y="576" width="80" height="34"/>
+    <SubTexture name="background_cloud_02" x="820" y="977" width="56" height="36"/>
+    <SubTexture name="background_cloud_03" x="728" y="614" width="76" height="28"/>
+    <SubTexture name="background_fence" x="1010" y="442" width="8" height="40"/>
+    <SubTexture name="background_game" x="2" y="2" width="480" height="514"/>
+    <SubTexture name="background_moon_01" x="891" y="881" width="42" height="46"/>
+    <SubTexture name="background_moon_02" x="774" y="1010" width="42" height="46"/>
+    <SubTexture name="background_moon_03" x="816" y="1087" width="46" height="46"/>
+    <SubTexture name="background_moon_04" x="772" y="1058" width="42" height="44"/>
+    <SubTexture name="background_sun_01" x="361" y="624" width="48" height="48"/>
+    <SubTexture name="background_sun_02" x="361" y="674" width="48" height="48"/>
+    <SubTexture name="background_sun_03" x="361" y="724" width="48" height="48"/>
+    <SubTexture name="background_sun_04" x="361" y="674" width="48" height="48"/>
+    <SubTexture name="balet_sheep_01" x="874" y="1063" width="52" height="84" frameX="-6" frameY="-2" frameWidth="70" frameHeight="86"/>
+    <SubTexture name="balet_sheep_02" x="885" y="929" width="46" height="84" frameX="-12" frameY="-2" frameWidth="70" frameHeight="86"/>
+    <SubTexture name="balet_sheep_03" x="592" y="986" width="58" height="70" frameX="-8" frameY="-6" frameWidth="70" frameHeight="86"/>
+    <SubTexture name="balet_sheep_04" x="728" y="754" width="64" height="62" frameX="-6" frameY="-8" frameWidth="70" frameHeight="86"/>
+    <SubTexture name="balet_sheep_05" x="592" y="986" width="58" height="70" frameX="-8" frameY="-6" frameWidth="70" frameHeight="86"/>
+    <SubTexture name="basic_f_sheep_01" x="874" y="1015" width="54" height="46" frameX="-4" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_f_sheep_02" x="933" y="982" width="62" height="40" frameX="0" frameY="-10" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_f_sheep_03" x="671" y="826" width="54" height="50" frameX="-4" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_f_sheep_05" x="475" y="798" width="62" height="48" frameX="0" frameY="-6" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_sheep_01" x="708" y="1064" width="54" height="46" frameX="-4" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_sheep_02" x="468" y="848" width="62" height="40" frameX="0" frameY="-10" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_sheep_03" x="716" y="1012" width="54" height="50" frameX="-4" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="basic_sheep_05" x="607" y="826" width="62" height="46" frameX="0" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="brown_sheep_01" x="930" y="1024" width="54" height="46" frameX="-4" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="brown_sheep_02" x="464" y="952" width="60" height="40" frameX="-2" frameY="-10" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="brown_sheep_03" x="652" y="1022" width="54" height="50" frameX="-4" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="brown_sheep_05" x="340" y="774" width="62" height="48" frameX="0" frameY="-6" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="button_blue_down" x="2" y="596" width="128" height="128"/>
+    <SubTexture name="button_blue_up" x="231" y="624" width="128" height="128"/>
+    <SubTexture name="button_large_disabled_up" x="830" y="442" width="178" height="104"/>
+    <SubTexture name="button_large_down" x="830" y="548" width="178" height="104"/>
+    <SubTexture name="button_large_up" x="232" y="518" width="178" height="104"/>
+    <SubTexture name="button_red_down" x="2" y="726" width="128" height="128"/>
+    <SubTexture name="button_red_up" x="482" y="614" width="128" height="128"/>
+    <SubTexture name="button_small_2_down" x="132" y="767" width="76" height="68"/>
+    <SubTexture name="button_small_2_up" x="132" y="837" width="76" height="68"/>
+    <SubTexture name="button_small_disabled_down" x="828" y="760" width="113" height="99" frameX="0" frameY="-5" frameWidth="113" frameHeight="104"/>
+    <SubTexture name="button_small_disabled_up" x="612" y="614" width="114" height="104"/>
+    <SubTexture name="button_small_down" x="830" y="654" width="114" height="104"/>
+    <SubTexture name="button_small_up" x="612" y="720" width="114" height="104"/>
+    <SubTexture name="button_yellow_down" x="210" y="754" width="128" height="128"/>
+    <SubTexture name="button_yellow_up" x="2" y="856" width="128" height="128"/>
+    <SubTexture name="coin_blue" x="794" y="808" width="28" height="30"/>
+    <SubTexture name="coin_red" x="791" y="906" width="28" height="30"/>
+    <SubTexture name="coin_sheep_01" x="796" y="644" width="32" height="32" frameX="0" frameY="-4" frameWidth="32" frameHeight="36"/>
+    <SubTexture name="coin_sheep_02" x="796" y="678" width="32" height="32" frameX="0" frameY="-2" frameWidth="32" frameHeight="36"/>
+    <SubTexture name="coin_sheep_03" x="796" y="712" width="32" height="32" frameX="0" frameY="-2" frameWidth="32" frameHeight="36"/>
+    <SubTexture name="coin_sheep_04" x="796" y="644" width="32" height="32" frameX="0" frameY="0" frameWidth="32" frameHeight="36"/>
+    <SubTexture name="coin_sheep_05" x="796" y="678" width="32" height="32" frameX="0" frameY="-2" frameWidth="32" frameHeight="36"/>
+    <SubTexture name="coin_yellow" x="802" y="1135" width="28" height="30"/>
+    <SubTexture name="cream_sheep_01" x="404" y="814" width="62" height="48" frameX="0" frameY="-4" frameWidth="62" frameHeight="52"/>
+    <SubTexture name="cream_sheep_02" x="727" y="874" width="62" height="46" frameX="0" frameY="-6" frameWidth="62" frameHeight="52"/>
+    <SubTexture name="cream_sheep_03" x="411" y="762" width="62" height="50" frameX="0" frameY="-2" frameWidth="62" frameHeight="52"/>
+    <SubTexture name="cream_sheep_04" x="594" y="932" width="60" height="52" frameX="0" frameY="0" frameWidth="62" frameHeight="52"/>
+    <SubTexture name="cream_sheep_05" x="943" y="772" width="62" height="52"/>
+    <SubTexture name="dolly_sheep_01" x="966" y="394" width="56" height="46" frameX="-4" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="dolly_sheep_02" x="718" y="922" width="60" height="40" frameX="-2" frameY="-10" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="dolly_sheep_03" x="526" y="988" width="54" height="50" frameX="-4" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="dolly_sheep_05" x="340" y="824" width="62" height="48" frameX="0" frameY="-6" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="fox_sheep_01" x="530" y="934" width="60" height="52" frameX="0" frameY="-2" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="fox_sheep_02" x="827" y="881" width="62" height="46" frameX="0" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="fox_sheep_03" x="543" y="744" width="62" height="50" frameX="0" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="fox_sheep_04" x="656" y="878" width="60" height="54" frameX="0" frameY="0" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="fox_sheep_05" x="943" y="826" width="62" height="52" frameX="0" frameY="-2" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="game_bar" x="484" y="382" width="480" height="58"/>
+    <SubTexture name="game_bar_arrow_down" x="997" y="934" width="24" height="24"/>
+    <SubTexture name="game_bar_arrow_up" x="997" y="960" width="24" height="20"/>
+    <SubTexture name="hair_sheep_01" x="716" y="964" width="56" height="46" frameX="-4" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="hair_sheep_02" x="404" y="864" width="62" height="40" frameX="0" frameY="-10" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="hair_sheep_03" x="966" y="342" width="56" height="50" frameX="-4" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="hair_sheep_04" x="966" y="286" width="56" height="54" frameX="-4" frameY="0" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="hair_sheep_05" x="821" y="929" width="62" height="46" frameX="0" frameY="-8" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="icon_back" x="986" y="1024" width="36" height="60"/>
+    <SubTexture name="icon_buy" x="816" y="1067" width="52" height="18"/>
+    <SubTexture name="icon_close" x="832" y="1135" width="26" height="22"/>
+    <SubTexture name="icon_config" x="411" y="690" width="66" height="70"/>
+    <SubTexture name="icon_confirm" x="791" y="878" width="34" height="26"/>
+    <SubTexture name="icon_help" x="792" y="840" width="34" height="36" frameX="-1" frameY="0" frameWidth="35" frameHeight="37"/>
+    <SubTexture name="icon_hero_select" x="818" y="1015" width="54" height="50"/>
+    <SubTexture name="icon_home" x="966" y="2" width="56" height="58"/>
+    <SubTexture name="icon_next" x="982" y="1152" width="36" height="60"/>
+    <SubTexture name="icon_pause" x="796" y="746" width="30" height="30"/>
+    <SubTexture name="icon_ranking" x="132" y="612" width="77" height="63"/>
+    <SubTexture name="icon_resume" x="211" y="612" width="18" height="30"/>
+    <SubTexture name="icon_select" x="828" y="861" width="106" height="18"/>
+    <SubTexture name="icon_selected" x="2" y="576" width="142" height="18"/>
+    <SubTexture name="icon_setzer" x="780" y="938" width="38" height="70"/>
+    <SubTexture name="icon_sound_off" x="806" y="614" width="20" height="26" frameX="0" frameY="-2" frameWidth="36" frameHeight="30"/>
+    <SubTexture name="icon_sound_on" x="764" y="1104" width="36" height="30"/>
+    <SubTexture name="life_bar" x="2" y="518" width="228" height="56"/>
+    <SubTexture name="life_bar_fill" x="1010" y="484" width="8" height="36"/>
+    <SubTexture name="pink_sheep_01" x="728" y="644" width="66" height="54" frameX="0" frameY="-4" frameWidth="72" frameHeight="58"/>
+    <SubTexture name="pink_sheep_02" x="412" y="578" width="68" height="54" frameX="0" frameY="-4" frameWidth="72" frameHeight="58"/>
+    <SubTexture name="pink_sheep_03" x="411" y="634" width="68" height="54" frameX="-4" frameY="-4" frameWidth="72" frameHeight="58"/>
+    <SubTexture name="pink_sheep_04" x="412" y="518" width="68" height="58" frameX="-2" frameY="0" frameWidth="72" frameHeight="58"/>
+    <SubTexture name="pink_sheep_05" x="728" y="700" width="66" height="52" frameX="0" frameY="-6" frameWidth="72" frameHeight="58"/>
+    <SubTexture name="sheep_logo" x="484" y="442" width="344" height="170"/>
+    <SubTexture name="strong_sheep_01" x="132" y="677" width="76" height="88"/>
+    <SubTexture name="strong_sheep_02" x="656" y="934" width="58" height="86" frameX="-4" frameY="-2" frameWidth="76" frameHeight="88"/>
+    <SubTexture name="strong_sheep_03" x="340" y="874" width="60" height="84" frameX="-8" frameY="0" frameWidth="76" frameHeight="88"/>
+    <SubTexture name="strong_sheep_04" x="928" y="1072" width="52" height="80" frameX="-12" frameY="-4" frameWidth="76" frameHeight="88"/>
+    <SubTexture name="strong_sheep_05" x="532" y="848" width="60" height="84" frameX="-10" frameY="0" frameWidth="76" frameHeight="88"/>
+    <SubTexture name="success_ok" x="982" y="1120" width="38" height="30"/>
+    <SubTexture name="success_perfect" x="982" y="1086" width="40" height="32"/>
+    <SubTexture name="success_wrong" x="794" y="778" width="30" height="28"/>
+    <SubTexture name="white_sheep_01" x="946" y="654" width="62" height="58" frameX="0" frameY="-2" frameWidth="62" frameHeight="60"/>
+    <SubTexture name="white_sheep_02" x="946" y="714" width="62" height="56" frameX="0" frameY="-4" frameWidth="62" frameHeight="60"/>
+    <SubTexture name="white_sheep_03" x="402" y="906" width="60" height="56" frameX="-2" frameY="-4" frameWidth="62" frameHeight="60"/>
+    <SubTexture name="white_sheep_04" x="468" y="890" width="60" height="60" frameX="0" frameY="0" frameWidth="62" frameHeight="60"/>
+    <SubTexture name="white_sheep_05" x="594" y="874" width="60" height="56" frameX="-2" frameY="-4" frameWidth="62" frameHeight="60"/>
+    <SubTexture name="wolf_sheep_01" x="936" y="880" width="62" height="52" frameX="0" frameY="-2" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="wolf_sheep_02" x="933" y="934" width="62" height="46" frameX="0" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="wolf_sheep_03" x="543" y="796" width="62" height="50" frameX="0" frameY="-4" frameWidth="62" frameHeight="54"/>
+    <SubTexture name="wolf_sheep_04" x="728" y="818" width="62" height="54"/>
+    <SubTexture name="wolf_sheep_05" x="479" y="744" width="62" height="52" frameX="0" frameY="-2" frameWidth="62" frameHeight="54"/>
+</TextureAtlas>

@@ -5,6 +5,8 @@ package sheep.sheep.race.mediators
 {
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
+	import sheep.sheep.race.events.RaceEvent;
+
 	import sheep.sheep.race.managers.GameManager;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.views.GameView;
@@ -29,11 +31,11 @@ package sheep.sheep.race.mediators
 			gameView = GameView( viewComponent );
 
 			eventMap.mapListener( gameView.startRace, Event.TRIGGERED, onStartRaceHandler );
+			addContextListener( RaceEvent.END, onEndRaceHandler );
 		}
 
 		private function onStartRaceHandler( e:Event ):void
 		{
-			gameManager.startRace();
 			addViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
 		}
 
@@ -48,6 +50,16 @@ package sheep.sheep.race.mediators
 				sheep = gameView.getSheepById( gameModel.sheepModels[i].id );
 				sheep.x = gameModel.sheepModels[i].distance;
 			}
+		}
+
+		private function onEndRaceHandler( e:Event ):void
+		{
+			removeViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
+		}
+
+		override public function destroy():void
+		{
+			eventMap.unmapListeners();
 		}
 	}
 }

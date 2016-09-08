@@ -15,6 +15,7 @@ package sheep.sheep.race
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Quad;
+	import starling.display.Sprite;
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.textures.TextureSmoothing;
@@ -87,6 +88,11 @@ package sheep.sheep.race
 
 			img.play();
 			return img;
+		}
+
+		public static function getSprite():Sprite
+		{
+			return new Sprite();
 		}
 	}
 }

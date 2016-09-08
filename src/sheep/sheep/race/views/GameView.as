@@ -10,8 +10,8 @@ package sheep.sheep.race.views
 	import sheep.sheep.race.utils.ViewPort;
 
 	import starling.display.Button;
-	import starling.display.Image;
 	import starling.display.MovieClip;
+	import starling.display.Quad;
 	import starling.display.Sprite;
 
 	public class GameView extends Sprite
@@ -33,12 +33,20 @@ package sheep.sheep.race.views
 				SheepIds.SHEEP_01, SheepIds.SHEEP_02, SheepIds.SHEEP_03, SheepIds.SHEEP_04
 			];
 
+			var raceContent:Sprite = StarlingFactory.getSprite();
+			raceContent.x = 30;
+			raceContent.y = 200;
+			addChild( raceContent);
+
+			var raceEnd:Quad = StarlingFactory.getQuad(30,200,0xFFFFF);
+			raceEnd.x = 520;
+			raceContent.addChild( raceEnd );
+
 			for ( var i:int = 0; i < 4; i++ )
 			{
 				sheep = StarlingFactory.getMovieClip( ids[i] );
-				sheep.x = 20;
-				sheep.y = 200 + (i * 45);
-				addChild( sheep );
+				sheep.y = (i * 45);
+				raceContent.addChild( sheep );
 
 				_sheeps[ids[i]] = sheep;
 				sheeps.push(sheep);

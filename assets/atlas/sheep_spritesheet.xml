@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:5b7270c3e4f805d59fd9f7e4c2240141:271ed464d1dad69f6dc9f5f9c749f140:e855de282fc04172eab05686665d8fdb$ -->
-<TextureAtlas imagePath="sheep_spritesheet-0.png" width="696" height="734">
+<!-- $TexturePacker:SmartUpdate:00882c1bf6c24908c39d6a1bc6f56abf:139107e1044aee52bd920728d6d844ed:e855de282fc04172eab05686665d8fdb$ -->
+<TextureAtlas imagePath="sheep_spritesheet-0.png" width="715" height="734">
     <SubTexture name="background_game" x="0" y="0" width="640" height="480"/>
     <SubTexture name="basic_f_sheep_01" x="640" y="0" width="56" height="47" frameX="-3" frameY="-7" frameWidth="62" frameHeight="54"/>
     <SubTexture name="basic_f_sheep_02" x="0" y="480" width="62" height="42" frameX="0" frameY="-9" frameWidth="62" frameHeight="54"/>
@@ -21,5 +21,7 @@
     <SubTexture name="dolly_sheep_02" x="152" y="531" width="61" height="42" frameX="-1" frameY="-9" frameWidth="62" frameHeight="54"/>
     <SubTexture name="dolly_sheep_03" x="213" y="531" width="56" height="51" frameX="-3" frameY="-3" frameWidth="62" frameHeight="54"/>
     <SubTexture name="dolly_sheep_04" x="269" y="531" width="62" height="49" frameX="0" frameY="-5" frameWidth="62" frameHeight="54"/>
-    <SubTexture name="sheep_logo" x="331" y="531" width="344" height="203"/>
+    <SubTexture name="finish_mark" x="331" y="531" width="30" height="180"/>
+    <SubTexture name="sheep_logo" x="361" y="531" width="344" height="203"/>
+    <SubTexture name="start_mark" x="705" y="531" width="10" height="180"/>
 </TextureAtlas>

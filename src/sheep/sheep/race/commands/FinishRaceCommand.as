@@ -10,7 +10,7 @@ package sheep.sheep.race.commands
 
 	import starling.events.EventDispatcher;
 
-	public class EndRaceCommand extends Command
+	public class FinishRaceCommand extends Command
 	{
 		[Inject]
 		public var gameModel:GameModel;

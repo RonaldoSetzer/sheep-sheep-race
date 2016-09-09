@@ -5,6 +5,8 @@ package sheep.sheep.race.managers
 {
 	import flash.events.IEventDispatcher;
 
+	import sheep.sheep.race.TextInfo;
+
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.models.SheepModel;
@@ -38,11 +40,28 @@ package sheep.sheep.race.managers
 				{
 					gameModel.addRacePosition( sheepModel );
 				}
-				if ( gameModel.isEnd() )
+				if ( gameModel.isTheRaceFinished() )
 				{
-					eventDispatcher.dispatchEvent( new RaceEvent( RaceEvent.END ) );
+					validateBetResults();
+					eventDispatcher.dispatchEvent( new RaceEvent( RaceEvent.FINISH ) );
 					return;
 				}
+			}
+		}
+
+		private function validateBetResults():void
+		{
+			if (gameModel.yourBetToFirstPosition == gameModel.racePositions[0].id)
+			{
+				gameModel.yourBetResult.push(TextInfo.YOU_WIN);
+			}else{
+				gameModel.yourBetResult.push(TextInfo.YOU_LOSE);
+			}
+			if (gameModel.yourBetToLastPosition == gameModel.racePositions[3].id)
+			{
+				gameModel.yourBetResult.push(TextInfo.YOU_WIN);
+			}else{
+				gameModel.yourBetResult.push(TextInfo.YOU_LOSE);
 			}
 		}
 	}

@@ -31,8 +31,8 @@ package sheep.sheep.race.mediators
 
 		private function onStartHandler( e:Event ):void
 		{
-			gameModel.betFirstPosition = _view.sheepSelectorFirstPosition.selectedSheepId;
-			gameModel.betLastPosition = _view.sheepSelectorLastPosition.selectedSheepId;
+			gameModel.yourBetToFirstPosition = _view.sheepSelectorFirstPosition.selectedSheepId;
+			gameModel.yourBetToLastPosition = _view.sheepSelectorLastPosition.selectedSheepId;
 
 			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_STARTING_POPUP ) );
 

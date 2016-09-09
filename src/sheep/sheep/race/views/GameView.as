@@ -5,6 +5,7 @@ package sheep.sheep.race.views
 {
 	import flash.utils.Dictionary;
 
+	import sheep.sheep.info.AssetsInfo;
 	import sheep.sheep.race.StarlingFactory;
 	import sheep.sheep.race.models.SheepIds;
 	import sheep.sheep.race.utils.ViewPort;
@@ -17,7 +18,6 @@ package sheep.sheep.race.views
 	public class GameView extends Sprite
 	{
 		private var _sheeps:Dictionary;
-		public var sheeps:Vector.<MovieClip>;
 		private var _betButton:Button;
 
 		public function GameView()
@@ -26,29 +26,24 @@ package sheep.sheep.race.views
 			addChild( StarlingFactory.getImage( "background_game" ) );
 
 			_sheeps = new Dictionary();
-			sheeps = new Vector.<MovieClip>();
-
-			var sheep:MovieClip;
-			var ids:Array = [
-				SheepIds.SHEEP_01, SheepIds.SHEEP_02, SheepIds.SHEEP_03, SheepIds.SHEEP_04
-			];
 
 			var raceContent:Sprite = StarlingFactory.getSprite();
 			raceContent.x = 30;
 			raceContent.y = 200;
 			addChild( raceContent );
 
-			var raceStart:Quad = StarlingFactory.getQuad( 5, 180, 0xFFFFFF );
-			raceStart.x = 55;
-			raceStart.y = 20;
-			raceStart.alpha = .4;
-			raceContent.addChild( raceStart );
+			var startMark:Quad = StarlingFactory.getImage( AssetsInfo.START_MARK );
+			startMark.x = 55;
+			startMark.y = 20;
+			raceContent.addChild( startMark );
 
-			var raceEnd:Quad = StarlingFactory.getQuad( 20, 180, 0xFFFFFF );
-			raceEnd.x = 520;
-			raceEnd.y = 20
-			raceEnd.alpha = .4;
-			raceContent.addChild( raceEnd );
+			var finishMark:Quad = StarlingFactory.getImage( AssetsInfo.FINISH_MARK );
+			finishMark.x = 520;
+			finishMark.y = 20
+			raceContent.addChild( finishMark );
+
+			var ids:Array = SheepIds.SHEEPS_IDS_ORDER;
+			var sheep:MovieClip;
 
 			for ( var i:int = 0; i < 4; i++ )
 			{
@@ -57,7 +52,6 @@ package sheep.sheep.race.views
 				raceContent.addChild( sheep );
 
 				_sheeps[ids[i]] = sheep;
-				sheeps.push( sheep );
 			}
 
 			_betButton = StarlingFactory.getButton( "BET" );
@@ -66,7 +60,6 @@ package sheep.sheep.race.views
 			_betButton.y = ViewPort.MAX_HEIGHT * .9;
 			addChild( _betButton )
 		}
-
 		public function getSheepById( id:String ):MovieClip
 		{
 			return _sheeps[id];
@@ -75,11 +68,6 @@ package sheep.sheep.race.views
 		public function get betButton():Button
 		{
 			return _betButton;
-		}
-
-		public function move( sheepId:String, sheepSteps:int ):void
-		{
-			_sheeps[sheepId].x = _sheeps[sheepId].x + (sheepSteps * 30);
 		}
 	}
 }

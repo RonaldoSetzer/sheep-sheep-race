@@ -10,7 +10,7 @@ package sheep.sheep.race.setup
 	import robotlegs.bender.framework.api.IContext;
 
 	import sheep.sheep.race.assets.Assets;
-	import sheep.sheep.race.commands.EndRaceCommand;
+	import sheep.sheep.race.commands.FinishRaceCommand;
 	import sheep.sheep.race.commands.RetryRaceCommand;
 
 	import sheep.sheep.race.events.FlowEvent;
@@ -69,7 +69,7 @@ package sheep.sheep.race.setup
 
 		private function mapCommands():void
 		{
-			commandMap.map( RaceEvent.END, RaceEvent ).toCommand( EndRaceCommand );
+			commandMap.map( RaceEvent.FINISH, RaceEvent ).toCommand( FinishRaceCommand );
 			commandMap.map( RaceEvent.RETRY, RaceEvent ).toCommand( RetryRaceCommand );
 		}
 

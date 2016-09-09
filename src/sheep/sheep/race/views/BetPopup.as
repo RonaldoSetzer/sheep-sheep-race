@@ -31,8 +31,15 @@ package sheep.sheep.race.views
 			ViewPort.alignCenter( background );
 			addChild( background );
 
+			var titleBackground:Quad = StarlingFactory.getQuad(300,30,ColorInfo.BACKGROUND_POPUP_2);
+			titleBackground.alignPivot();
+			titleBackground.width = ViewPort.MAX_WIDTH * .45;
+			titleBackground.x = ViewPort.HALF_WIDTH;
+			titleBackground.y = 100;
+			addChild(titleBackground);
+
 			var title:TextField = StarlingFactory.getTitle( TextInfo.TITLE_BET );
-			title.y = 100;
+			title.y = 102;
 			addChild( title );
 
 			var firstPositionText:TextField = StarlingFactory.getTextField( 140, TextInfo.FIRST_POSITION, TextInfo.SIZE_DEFAULT, 2 );

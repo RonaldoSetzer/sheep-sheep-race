@@ -8,7 +8,6 @@ package sheep.sheep.race.mediators
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
 	import sheep.sheep.race.events.FlowEvent;
-
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.views.BetFeedbackPopup;
@@ -23,14 +22,13 @@ package sheep.sheep.race.mediators
 		[Inject]
 		public var dispatcher:IEventDispatcher;
 
-
 		private var betFeedbackPopup:BetFeedbackPopup;
 
 		override public function initialize():void
 		{
 			betFeedbackPopup = BetFeedbackPopup( viewComponent );
 
-			betFeedbackPopup.setupRaceResults( gameModel.betFirstPosition, gameModel.isBetFirstPositionRight(), gameModel.betLastPosition, gameModel.isBetLastPositionRight() );
+			betFeedbackPopup.createPodiumByModel( gameModel );
 			eventMap.mapListener( betFeedbackPopup.retryButton, Event.TRIGGERED, onRetryHandler )
 			eventMap.mapListener( betFeedbackPopup.homeButton, Event.TRIGGERED, onHomeHandler )
 		}
@@ -42,7 +40,7 @@ package sheep.sheep.race.mediators
 
 		private function onHomeHandler( e:Event ):void
 		{
-			eventDispatcher.dispatchEvent(new FlowEvent(FlowEvent.SHOW_HOME_VIEW));
+			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_HOME_VIEW ) );
 		}
 
 		private function onRetryHandler( e:Event ):void

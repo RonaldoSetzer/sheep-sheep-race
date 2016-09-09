@@ -6,10 +6,12 @@ package sheep.sheep.race.models
 	public class GameModel
 	{
 		private var _sheepModels:Vector.<SheepModel>;
-		private var _racePosition:Vector.<SheepModel>;
+		private var _racePositions:Vector.<SheepModel>;
 
-		public var betFirstPosition:String;
-		public var betLastPosition:String;
+		public var yourBetToFirstPosition:String;
+		public var yourBetToLastPosition:String;
+
+		public var yourBetResult:Array;
 
 		public function GameModel()
 		{
@@ -19,7 +21,7 @@ package sheep.sheep.race.models
 		public function clear():void
 		{
 			_sheepModels = new Vector.<SheepModel>();
-			_racePosition = new Vector.<SheepModel>();
+			_racePositions = new Vector.<SheepModel>();
 
 			var total:uint = SheepIds.SHEEPS_IDS_ORDER.length;
 			for( var i:int = 0; i < total; ++i)
@@ -27,8 +29,9 @@ package sheep.sheep.race.models
 				_sheepModels.push( new SheepModel( SheepIds.SHEEPS_IDS_ORDER[i] ) )
 			}
 
-			betFirstPosition = "";
-			betLastPosition = "";
+			yourBetToFirstPosition = "";
+			yourBetToLastPosition = "";
+			yourBetResult = [];
 		}
 
 		public function get sheepModels():Vector.<SheepModel>
@@ -38,25 +41,20 @@ package sheep.sheep.race.models
 
 		public function addRacePosition( sheep:SheepModel ):void
 		{
-			if (_racePosition.indexOf(sheep)==-1)
+			if (_racePositions.indexOf(sheep)==-1)
 			{
-				_racePosition.push(sheep);
+				_racePositions.push(sheep);
 			}
 		}
 
-		public function isEnd():Boolean
+		public function isTheRaceFinished():Boolean
 		{
-			return _racePosition.length == _sheepModels.length;
+			return _racePositions.length == _sheepModels.length;
 		}
 
-		public function isBetFirstPositionRight():Boolean
+		public function get racePositions():Vector.<SheepModel>
 		{
-			return (_racePosition[0].id == betFirstPosition);
-		}
-
-		public function isBetLastPositionRight():Boolean
-		{
-			return (_racePosition[_racePosition.length-1].id == betLastPosition);
+			return _racePositions;
 		}
 	}
 }

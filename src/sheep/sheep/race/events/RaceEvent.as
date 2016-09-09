@@ -8,7 +8,7 @@ package sheep.sheep.race.events
 	public class RaceEvent extends Event
 	{
 		public static const START:String = "start";
-		public static const END:String = "end";
+		public static const FINISH:String = "finish";
 		public static const RETRY:String = "retry";
 		public static const UPDATE:String = "update";
 

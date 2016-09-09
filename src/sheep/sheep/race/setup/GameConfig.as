@@ -15,6 +15,7 @@ package sheep.sheep.race.setup
 	import sheep.sheep.race.events.FlowEvent;
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.managers.GameManager;
+	import sheep.sheep.race.managers.SoundManager;
 	import sheep.sheep.race.mediators.BetFeedbackPopupMediator;
 	import sheep.sheep.race.mediators.BetPopupMediator;
 	import sheep.sheep.race.mediators.GameViewMediator;
@@ -82,6 +83,7 @@ package sheep.sheep.race.setup
 		private function mapManagers():void
 		{
 			context.injector.map( GameManager ).asSingleton();
+			context.injector.map( SoundManager ).asSingleton();
 		}
 
 		private function mapMediators():void

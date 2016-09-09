@@ -5,7 +5,10 @@ package sheep.sheep.race.mediators
 {
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
+	import sheep.sheep.info.AssetsInfo;
+
 	import sheep.sheep.race.events.FlowEvent;
+	import sheep.sheep.race.managers.SoundManager;
 
 	import sheep.sheep.race.views.HomeView;
 
@@ -13,8 +16,12 @@ package sheep.sheep.race.mediators
 
 	public class HomeViewMediator extends StarlingMediator
 	{
+		[Inject]
+		public var soundManager:SoundManager;
+
 		override public function initialize():void
 		{
+			soundManager.playMusic(AssetsInfo.MUSIC_OVERWORLD);
 			eventMap.mapListener( HomeView(viewComponent ).startButton, Event.TRIGGERED, onStartHandler )
 		}
 

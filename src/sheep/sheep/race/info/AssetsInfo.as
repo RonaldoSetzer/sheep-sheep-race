@@ -1,7 +1,7 @@
 /**
  * Created by Ronaldo on 07/09/16.
  */
-package sheep.sheep.info
+package sheep.sheep.race.info
 {
 	public class AssetsInfo
 	{

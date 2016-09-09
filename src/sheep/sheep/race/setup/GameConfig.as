@@ -10,10 +10,10 @@ package sheep.sheep.race.setup
 	import robotlegs.bender.framework.api.IContext;
 
 	import sheep.sheep.race.assets.Assets;
-	import sheep.sheep.race.commands.FinishRaceCommand;
-	import sheep.sheep.race.commands.RetryRaceCommand;
+	import sheep.sheep.race.commands.FinishGameCommand;
+	import sheep.sheep.race.commands.RetryGameCommand;
 	import sheep.sheep.race.events.FlowEvent;
-	import sheep.sheep.race.events.RaceEvent;
+	import sheep.sheep.race.events.GameEvent;
 	import sheep.sheep.race.managers.GameManager;
 	import sheep.sheep.race.managers.SoundManager;
 	import sheep.sheep.race.mediators.BetFeedbackPopupMediator;
@@ -24,6 +24,8 @@ package sheep.sheep.race.setup
 	import sheep.sheep.race.mediators.MessagePopupMediator;
 	import sheep.sheep.race.mediators.StartingPopupMediator;
 	import sheep.sheep.race.models.GameModel;
+	import sheep.sheep.race.services.FlowService;
+	import sheep.sheep.race.services.GameService;
 	import sheep.sheep.race.views.BetFeedbackPopup;
 	import sheep.sheep.race.views.BetPopup;
 	import sheep.sheep.race.views.GameView;
@@ -62,6 +64,7 @@ package sheep.sheep.race.setup
 
 			mapModels();
 			mapManagers();
+			mapServices();
 			mapMediators();
 			mapFlowManager();
 			mapCommands();
@@ -71,8 +74,8 @@ package sheep.sheep.race.setup
 
 		private function mapCommands():void
 		{
-			commandMap.map( RaceEvent.FINISH, RaceEvent ).toCommand( FinishRaceCommand );
-			commandMap.map( RaceEvent.RETRY, RaceEvent ).toCommand( RetryRaceCommand );
+			commandMap.map( GameEvent.FINISH, GameEvent ).toCommand( FinishGameCommand );
+			commandMap.map( GameEvent.RETRY, GameEvent ).toCommand( RetryGameCommand );
 		}
 
 		private function mapModels():void
@@ -84,6 +87,12 @@ package sheep.sheep.race.setup
 		{
 			context.injector.map( GameManager ).asSingleton();
 			context.injector.map( SoundManager ).asSingleton();
+		}
+
+		private function mapServices():void
+		{
+			context.injector.map( FlowService ).asSingleton();
+			context.injector.map( GameService ).asSingleton();
 		}
 
 		private function mapMediators():void

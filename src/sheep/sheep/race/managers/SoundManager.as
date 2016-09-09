@@ -9,7 +9,7 @@ package sheep.sheep.race.managers
 	import flash.media.SoundTransform;
 	import flash.utils.Dictionary;
 
-	import sheep.sheep.info.AssetsInfo;
+	import sheep.sheep.race.info.AssetsInfo;
 	import sheep.sheep.race.assets.Embeds;
 
 	public class SoundManager

@@ -7,18 +7,23 @@ package sheep.sheep.race.mediators
 
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
-	import sheep.sheep.race.events.FlowEvent;
+	import sheep.sheep.race.services.FlowService;
+	import sheep.sheep.race.views.IntroView;
 
 	public class IntroViewMediator extends StarlingMediator
 	{
+		[Inject]
+		public var flowService:FlowService;
+
 		override public function initialize():void
 		{
+			IntroView( viewComponent ).playAnimation();
 			setTimeout( handlerTimerOut, 3000 );
 		}
 
 		private function handlerTimerOut():void
 		{
-			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_HOME_VIEW ) );
+			flowService.setHomeView();
 		}
 	}
 }

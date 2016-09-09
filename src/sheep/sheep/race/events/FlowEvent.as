@@ -16,6 +16,8 @@ package sheep.sheep.race.events
 		public static const SHOW_STARTING_POPUP:String = "showStartingPopup";
 		public static const SHOW_BET_MESSAGE_POPUP:String = "showBetMessagePopup";
 
+		public static const ANIMATION_OUT_COMPLETE:String = "animationOutComplete";
+
 		public function FlowEvent( type:String, bubbles:Boolean = false, data:Object = null )
 		{
 			super( type, bubbles, data );

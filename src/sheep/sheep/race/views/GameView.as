@@ -3,11 +3,13 @@
  */
 package sheep.sheep.race.views
 {
+	import com.greensock.TweenNano;
+
 	import flash.utils.Dictionary;
 
-	import sheep.sheep.info.AssetsInfo;
-	import sheep.sheep.race.StarlingFactory;
-	import sheep.sheep.race.models.SheepIds;
+	import sheep.sheep.race.info.AssetsInfo;
+	import sheep.sheep.race.utils.StarlingFactory;
+	import sheep.sheep.race.info.SheepIds;
 	import sheep.sheep.race.utils.ViewPort;
 
 	import starling.display.Button;
@@ -49,17 +51,22 @@ package sheep.sheep.race.views
 			{
 				sheep = StarlingFactory.getMovieClip( ids[i] );
 				sheep.y = (i * 45);
+				sheep.alpha = 0;
 				raceContent.addChild( sheep );
 
 				_sheeps[ids[i]] = sheep;
+
+				TweenNano.to( sheep, .3, { alpha:1, delay:i * .1 } );
 			}
 
 			_betButton = StarlingFactory.getButton( "BET" );
 			_betButton.alignPivot();
 			_betButton.x = ViewPort.HALF_WIDTH;
-			_betButton.y = ViewPort.MAX_HEIGHT * .9;
-			addChild( _betButton )
+			_betButton.y = ViewPort.MAX_HEIGHT * .9 + ViewPort.HALF_HEIGHT;
+			addChild( _betButton );
+			TweenNano.to( _betButton, .2, { y:ViewPort.MAX_HEIGHT * .9, delay:i * .1 } );
 		}
+
 		public function getSheepById( id:String ):MovieClip
 		{
 			return _sheeps[id];

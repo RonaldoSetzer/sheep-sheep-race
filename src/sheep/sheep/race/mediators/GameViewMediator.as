@@ -3,14 +3,17 @@
  */
 package sheep.sheep.race.mediators
 {
+	import com.greensock.TweenNano;
+
 	import flash.events.IEventDispatcher;
 
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
-	import sheep.sheep.race.events.FlowEvent;
-	import sheep.sheep.race.events.RaceEvent;
+	import sheep.sheep.race.services.FlowService;
+	import sheep.sheep.race.events.GameEvent;
 	import sheep.sheep.race.managers.GameManager;
 	import sheep.sheep.race.models.GameModel;
+	import sheep.sheep.race.utils.ViewPort;
 	import sheep.sheep.race.views.GameView;
 
 	import starling.display.MovieClip;
@@ -20,6 +23,9 @@ package sheep.sheep.race.mediators
 	{
 		[Inject]
 		public var gameManager:GameManager;
+
+		[Inject]
+		public var flowService:FlowService;
 
 		[Inject]
 		public var dispatcher:IEventDispatcher;
@@ -34,23 +40,22 @@ package sheep.sheep.race.mediators
 			gameManager.start();
 
 			_view = GameView( viewComponent );
-			_view.betButton.visible = true;
 
 			eventMap.mapListener( _view.betButton, Event.TRIGGERED, onBetHandler );
-			dispatcher.addEventListener( RaceEvent.FINISH, onEndRaceHandler );
-			dispatcher.addEventListener( RaceEvent.START, onStartRaceHandler );
-			dispatcher.addEventListener( RaceEvent.UPDATE, onUpdateHandler );
+			dispatcher.addEventListener( GameEvent.FINISH, onEndRaceHandler );
+			dispatcher.addEventListener( GameEvent.START, onStartRaceHandler );
+			dispatcher.addEventListener( GameEvent.UPDATE, onUpdateHandler );
 		}
 
-		private function onStartRaceHandler( e:RaceEvent ):void
+		private function onStartRaceHandler( e:GameEvent ):void
 		{
 			addViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
 		}
 
 		private function onBetHandler( e:Event ):void
 		{
-			_view.betButton.visible = false;
-			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_BET_POPUP ) );
+			TweenNano.to( _view.betButton, .4, { y:ViewPort.MAX_HEIGHT * .9 + ViewPort.HALF_HEIGHT } );
+			flowService.addBetPopup();
 		}
 
 		private function onEnterFrameHandler( e:Event ):void
@@ -58,7 +63,7 @@ package sheep.sheep.race.mediators
 			update();
 		}
 
-		private function onUpdateHandler( e:RaceEvent ):void
+		private function onUpdateHandler( e:GameEvent ):void
 		{
 			update();
 		}
@@ -77,7 +82,7 @@ package sheep.sheep.race.mediators
 			}
 		}
 
-		private function onEndRaceHandler( e:RaceEvent ):void
+		private function onEndRaceHandler( e:GameEvent ):void
 		{
 			removeViewListener( Event.ENTER_FRAME, onEnterFrameHandler );
 		}
@@ -85,9 +90,9 @@ package sheep.sheep.race.mediators
 		override public function destroy():void
 		{
 			eventMap.unmapListeners();
-			dispatcher.removeEventListener( RaceEvent.FINISH, onEndRaceHandler );
-			dispatcher.removeEventListener( RaceEvent.START, onStartRaceHandler );
-			dispatcher.removeEventListener( RaceEvent.UPDATE, onUpdateHandler );
+			dispatcher.removeEventListener( GameEvent.FINISH, onEndRaceHandler );
+			dispatcher.removeEventListener( GameEvent.START, onStartRaceHandler );
+			dispatcher.removeEventListener( GameEvent.UPDATE, onUpdateHandler );
 		}
 	}
 }

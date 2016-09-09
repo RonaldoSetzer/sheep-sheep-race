@@ -3,6 +3,8 @@
  */
 package sheep.sheep.race.models
 {
+	import sheep.sheep.race.info.SheepIds;
+
 	public class GameModel
 	{
 		private var _sheepModels:Vector.<SheepModel>;

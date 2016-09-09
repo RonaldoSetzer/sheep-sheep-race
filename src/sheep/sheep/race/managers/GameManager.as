@@ -5,11 +5,12 @@ package sheep.sheep.race.managers
 {
 	import flash.events.IEventDispatcher;
 
-	import sheep.sheep.race.TextInfo;
+	import sheep.sheep.race.info.TextInfo;
 
-	import sheep.sheep.race.events.RaceEvent;
+	import sheep.sheep.race.events.GameEvent;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.models.SheepModel;
+	import sheep.sheep.race.services.GameService;
 
 	public class GameManager
 	{
@@ -17,7 +18,7 @@ package sheep.sheep.race.managers
 		public var gameModel:GameModel;
 
 		[Inject]
-		public var eventDispatcher:IEventDispatcher;
+		public var gameService:GameService;
 
 		public function start():void
 		{
@@ -43,7 +44,7 @@ package sheep.sheep.race.managers
 				if ( gameModel.isTheRaceFinished() )
 				{
 					validateBetResults();
-					eventDispatcher.dispatchEvent( new RaceEvent( RaceEvent.FINISH ) );
+					gameService.finish();
 					return;
 				}
 			}

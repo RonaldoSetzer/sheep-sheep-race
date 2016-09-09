@@ -3,9 +3,9 @@
  */
 package sheep.sheep.race.views.components
 {
-	import sheep.sheep.race.StarlingFactory;
+	import sheep.sheep.race.utils.StarlingFactory;
 	import sheep.sheep.race.assets.Assets;
-	import sheep.sheep.race.models.SheepIds;
+	import sheep.sheep.race.info.SheepIds;
 
 	import starling.display.Button;
 	import starling.display.Image;

@@ -1,7 +1,7 @@
 /**
  * Created by Ronaldo on 07/09/16.
  */
-package sheep.sheep.race
+package sheep.sheep.race.info
 {
 	public class TextInfo
 	{

@@ -1,10 +1,12 @@
 /**
  * Created by Ronaldo on 07/09/16.
  */
-package sheep.sheep.race
+package sheep.sheep.race.utils
 {
-	import sheep.sheep.info.AssetsInfo;
-	import sheep.sheep.info.ColorInfo;
+	import sheep.sheep.race.info.TextInfo;
+	import sheep.sheep.race.*;
+	import sheep.sheep.race.info.AssetsInfo;
+	import sheep.sheep.race.info.ColorInfo;
 	import sheep.sheep.race.assets.Assets;
 	import sheep.sheep.race.utils.ViewPort;
 

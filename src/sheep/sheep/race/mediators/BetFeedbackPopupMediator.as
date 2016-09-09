@@ -3,19 +3,18 @@
  */
 package sheep.sheep.race.mediators
 {
-	import flash.events.IEventDispatcher;
 	import flash.events.TimerEvent;
 	import flash.utils.Dictionary;
 	import flash.utils.Timer;
 
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
-	import sheep.sheep.info.AssetsInfo;
-	import sheep.sheep.race.TextInfo;
-	import sheep.sheep.race.events.FlowEvent;
-	import sheep.sheep.race.events.RaceEvent;
+	import sheep.sheep.race.info.AssetsInfo;
+	import sheep.sheep.race.info.TextInfo;
 	import sheep.sheep.race.managers.SoundManager;
 	import sheep.sheep.race.models.GameModel;
+	import sheep.sheep.race.services.FlowService;
+	import sheep.sheep.race.services.GameService;
 	import sheep.sheep.race.views.BetFeedbackPopup;
 
 	import starling.events.Event;
@@ -26,12 +25,16 @@ package sheep.sheep.race.mediators
 		public var gameModel:GameModel;
 
 		[Inject]
-		public var dispatcher:IEventDispatcher;
+		public var flowService:FlowService;
+
+		[Inject]
+		public var gameService:GameService;
 
 		[Inject]
 		public var soundManager:SoundManager;
 
 		private var _view:BetFeedbackPopup;
+
 		private var _timer:Timer;
 
 		private var _dictionary:Dictionary;
@@ -66,13 +69,13 @@ package sheep.sheep.race.mediators
 
 		private function onHomeHandler( e:Event ):void
 		{
-			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_HOME_VIEW ) );
+			flowService.setHomeView();
 		}
 
 		private function onRetryHandler( e:Event ):void
 		{
 			_view.destroy();
-			dispatcher.dispatchEvent( new RaceEvent( RaceEvent.RETRY ) );
+			gameService.retry();
 		}
 	}
 }

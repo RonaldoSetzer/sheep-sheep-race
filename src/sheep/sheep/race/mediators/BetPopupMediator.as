@@ -5,7 +5,7 @@ package sheep.sheep.race.mediators
 {
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
-	import sheep.sheep.race.events.FlowEvent;
+	import sheep.sheep.race.services.FlowService;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.views.BetPopup;
 
@@ -15,6 +15,9 @@ package sheep.sheep.race.mediators
 	{
 		[Inject]
 		public var gameModel:GameModel;
+
+		[Inject]
+		public var flowService:FlowService;
 
 		private var _view:BetPopup;
 
@@ -36,10 +39,10 @@ package sheep.sheep.race.mediators
 
 			if ( gameModel.yourBetToFirstPosition == gameModel.yourBetToLastPosition )
 			{
-				eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_BET_MESSAGE_POPUP ) );
+				flowService.addBetMessagePopup();
 				return;
 			}
-			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_STARTING_POPUP ) );
+			flowService.addStartingPopup();
 
 			_view.destroy();
 		}

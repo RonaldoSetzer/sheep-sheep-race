@@ -3,25 +3,23 @@
  */
 package sheep.sheep.race.mediators
 {
-	import flash.events.IEventDispatcher;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
-	import sheep.sheep.race.events.RaceEvent;
+	import sheep.sheep.race.services.GameService;
 	import sheep.sheep.race.views.StartingPopup;
 
 	public class StartingPopupMediator extends StarlingMediator
 	{
 		[Inject]
-		public var dispatcher:IEventDispatcher;
+		public var gameService:GameService;
+
 		private var _timer:Timer;
-		private var _count:int;
 
 		override public function initialize():void
 		{
-			_count = 3;
 			_timer = new Timer( 600, 4 );
 			_timer.addEventListener( TimerEvent.TIMER, onTimerEventHandler );
 			_timer.addEventListener( TimerEvent.TIMER_COMPLETE, onTimerCompleteHandler );
@@ -30,14 +28,13 @@ package sheep.sheep.race.mediators
 
 		private function onTimerEventHandler( e:TimerEvent ):void
 		{
-			var valor:String = (_count > 0) ? String( _count ) : "";
+			var valor:String = String(4 - _timer.currentCount) || "";
 			StartingPopup( viewComponent ).updateCount( valor );
-			_count = _count - 1;
 		}
 
 		private function onTimerCompleteHandler( e:TimerEvent ):void
 		{
-			dispatcher.dispatchEvent( new RaceEvent( RaceEvent.START ) );
+			gameService.start();
 			StartingPopup( viewComponent ).destroy();
 		}
 

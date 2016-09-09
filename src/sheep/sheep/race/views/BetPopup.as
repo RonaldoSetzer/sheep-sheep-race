@@ -3,9 +3,9 @@
  */
 package sheep.sheep.race.views
 {
-	import sheep.sheep.info.ColorInfo;
-	import sheep.sheep.race.StarlingFactory;
-	import sheep.sheep.race.TextInfo;
+	import sheep.sheep.race.info.ColorInfo;
+	import sheep.sheep.race.utils.StarlingFactory;
+	import sheep.sheep.race.info.TextInfo;
 	import sheep.sheep.race.utils.ViewPort;
 	import sheep.sheep.race.views.components.SheepSelector;
 

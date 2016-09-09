@@ -12,7 +12,6 @@ package sheep.sheep.race.setup
 	import sheep.sheep.race.assets.Assets;
 	import sheep.sheep.race.commands.FinishRaceCommand;
 	import sheep.sheep.race.commands.RetryRaceCommand;
-
 	import sheep.sheep.race.events.FlowEvent;
 	import sheep.sheep.race.events.RaceEvent;
 	import sheep.sheep.race.managers.GameManager;
@@ -21,6 +20,7 @@ package sheep.sheep.race.setup
 	import sheep.sheep.race.mediators.GameViewMediator;
 	import sheep.sheep.race.mediators.HomeViewMediator;
 	import sheep.sheep.race.mediators.IntroViewMediator;
+	import sheep.sheep.race.mediators.MessagePopupMediator;
 	import sheep.sheep.race.mediators.StartingPopupMediator;
 	import sheep.sheep.race.models.GameModel;
 	import sheep.sheep.race.views.BetFeedbackPopup;
@@ -28,6 +28,7 @@ package sheep.sheep.race.setup
 	import sheep.sheep.race.views.GameView;
 	import sheep.sheep.race.views.HomeView;
 	import sheep.sheep.race.views.IntroView;
+	import sheep.sheep.race.views.MessagePopup;
 	import sheep.sheep.race.views.StartingPopup;
 
 	import starling.events.EventDispatcher;
@@ -91,6 +92,7 @@ package sheep.sheep.race.setup
 			mediatorMap.map( BetPopup ).toMediator( BetPopupMediator );
 			mediatorMap.map( BetFeedbackPopup ).toMediator( BetFeedbackPopupMediator );
 			mediatorMap.map( StartingPopup ).toMediator( StartingPopupMediator );
+			mediatorMap.map( MessagePopup ).toMediator( MessagePopupMediator );
 		}
 
 		private function mapFlowManager():void
@@ -101,6 +103,7 @@ package sheep.sheep.race.setup
 			flowManager.mapAddView( FlowEvent.SHOW_BET_POPUP, BetPopup );
 			flowManager.mapAddView( FlowEvent.SHOW_BET_FEEDBACK_POPUP, BetFeedbackPopup );
 			flowManager.mapAddView( FlowEvent.SHOW_STARTING_POPUP, StartingPopup );
+			flowManager.mapAddView( FlowEvent.SHOW_BET_MESSAGE_POPUP, MessagePopup );
 		}
 	}
 }

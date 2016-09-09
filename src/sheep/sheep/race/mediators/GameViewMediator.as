@@ -27,16 +27,16 @@ package sheep.sheep.race.mediators
 		[Inject]
 		public var gameModel:GameModel;
 
-		public var gameView:GameView;
+		private var _view:GameView;
 
 		override public function initialize():void
 		{
 			gameManager.start();
 
-			gameView = GameView( viewComponent );
-			gameView.betButton.visible = true;
+			_view = GameView( viewComponent );
+			_view.betButton.visible = true;
 
-			eventMap.mapListener( gameView.betButton, Event.TRIGGERED, onBetHandler );
+			eventMap.mapListener( _view.betButton, Event.TRIGGERED, onBetHandler );
 			dispatcher.addEventListener( RaceEvent.FINISH, onEndRaceHandler );
 			dispatcher.addEventListener( RaceEvent.START, onStartRaceHandler );
 			dispatcher.addEventListener( RaceEvent.UPDATE, onUpdateHandler );
@@ -49,7 +49,7 @@ package sheep.sheep.race.mediators
 
 		private function onBetHandler( e:Event ):void
 		{
-			gameView.betButton.visible = false;
+			_view.betButton.visible = false;
 			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_BET_POPUP ) );
 		}
 
@@ -72,7 +72,7 @@ package sheep.sheep.race.mediators
 
 			for ( var i:int = 0; i < total; ++i )
 			{
-				sheep = gameView.getSheepById( gameModel.sheepModels[i].id );
+				sheep = _view.getSheepById( gameModel.sheepModels[i].id );
 				sheep.x = gameModel.sheepModels[i].distance;
 			}
 		}

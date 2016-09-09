@@ -22,15 +22,15 @@ package sheep.sheep.race.mediators
 		[Inject]
 		public var dispatcher:IEventDispatcher;
 
-		private var betFeedbackPopup:BetFeedbackPopup;
+		private var _view:BetFeedbackPopup;
 
 		override public function initialize():void
 		{
-			betFeedbackPopup = BetFeedbackPopup( viewComponent );
+			_view = BetFeedbackPopup( viewComponent );
 
-			betFeedbackPopup.createPodiumByModel( gameModel );
-			eventMap.mapListener( betFeedbackPopup.retryButton, Event.TRIGGERED, onRetryHandler )
-			eventMap.mapListener( betFeedbackPopup.homeButton, Event.TRIGGERED, onHomeHandler )
+			_view.createPodiumByModel( gameModel );
+			eventMap.mapListener( _view.retryButton, Event.TRIGGERED, onRetryHandler )
+			eventMap.mapListener( _view.homeButton, Event.TRIGGERED, onHomeHandler )
 		}
 
 		override public function destroy():void
@@ -45,7 +45,7 @@ package sheep.sheep.race.mediators
 
 		private function onRetryHandler( e:Event ):void
 		{
-			betFeedbackPopup.destroy();
+			_view.destroy();
 			dispatcher.dispatchEvent( new RaceEvent( RaceEvent.RETRY ) );
 		}
 	}

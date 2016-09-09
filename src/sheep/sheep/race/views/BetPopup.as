@@ -25,7 +25,7 @@ package sheep.sheep.race.views
 			addChild( StarlingFactory.getShadowBackground() );
 
 			var background:Quad = StarlingFactory.getBackground( ColorInfo.BACKGROUND_POPUP_1, ColorInfo.BACKGROUND_POPUP_2 );
-			background.width = ViewPort.HALF_WIDTH;
+			background.width = ViewPort.MAX_WIDTH * .55;
 			background.height = ViewPort.MAX_HEIGHT * .7;
 			background.alignPivot();
 			ViewPort.alignCenter( background );
@@ -33,7 +33,7 @@ package sheep.sheep.race.views
 
 			var titleBackground:Quad = StarlingFactory.getQuad(300,30,ColorInfo.BACKGROUND_POPUP_2);
 			titleBackground.alignPivot();
-			titleBackground.width = ViewPort.MAX_WIDTH * .45;
+			titleBackground.width = ViewPort.MAX_WIDTH * .50;
 			titleBackground.x = ViewPort.HALF_WIDTH;
 			titleBackground.y = 100;
 			addChild(titleBackground);

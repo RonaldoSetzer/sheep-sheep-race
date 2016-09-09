@@ -16,7 +16,7 @@ package sheep.sheep.race.mediators
 		[Inject]
 		public var gameModel:GameModel;
 
-		public var _view:BetPopup;
+		private var _view:BetPopup;
 
 		override public function initialize():void
 		{
@@ -34,6 +34,11 @@ package sheep.sheep.race.mediators
 			gameModel.yourBetToFirstPosition = _view.sheepSelectorFirstPosition.selectedSheepId;
 			gameModel.yourBetToLastPosition = _view.sheepSelectorLastPosition.selectedSheepId;
 
+			if ( gameModel.yourBetToFirstPosition == gameModel.yourBetToLastPosition )
+			{
+				eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_BET_MESSAGE_POPUP ) );
+				return;
+			}
 			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_STARTING_POPUP ) );
 
 			_view.destroy();

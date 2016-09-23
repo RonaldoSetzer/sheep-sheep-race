@@ -16,18 +16,33 @@
 + [GreenSock AS3](https://github.com/greensock/GreenSock-AS3)
 
 
-* * *
-
 **Assets**
 
 Developed with Gimp
 
+* * *
+
+### Demo
+
++ **[Haxe - (PixiJs)](https://ronaldosetzer.github.io/portfolio/games/sheep_sheep_race_haxe/)**
++ **[Actionscript (Robotlegs 2.0 / Starling)](https://ronaldosetzer.github.io/portfolio/games/sheep_sheep_race_as/)**
 
 * * *
 
-**ScreenShot**
+### Source
 
-![sheep sheep race](https://ronaldosetzer.github.io/portfolio/images/screenshots/sheep_sheep_race.png)
++ **[GitHub: (Haxe / PixiJs)](https://github.com/RonaldoSetzer/sheep-sheep-race-haxe)**
++ **[GitHub: (Actionscript / Robotlegs 2.0 / Starling)](https://github.com/RonaldoSetzer/sheep-sheep-race)**
+
+* * *
+
+### Screenshots
+
+[![SheepSheepRaceHaxe 01](https://ronaldosetzer.github.io/portfolio/images/screenshots/ss_sheep_sheep_race_haxe_01.png)
+
+[![SheepSheepRaceHaxe 02](https://ronaldosetzer.github.io/portfolio/images/screenshots/ss_sheep_sheep_race_haxe_02.png)
+
+[![SheepSheepRaceHaxe 03](https://ronaldosetzer.github.io/portfolio/images/screenshots/ss_sheep_sheep_race_haxe_03.png)
 
 * * *
 
